@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4eac369f-c203-4504-a9cf-b0119d79494f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.fixture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddCardActionPanel/AddCardActionPanel.fixture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddCardActionPanel/AddCardActionPanel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddCardActionPanel/AddCardActionPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/ListHeader/ListHeader.fixture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/ListHeader/ListHeader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/ListHeader/ListHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/TaskCard/TaskCard.fixture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/TaskCard/TaskCard.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/TaskCard/TaskCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.fixture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/templates/ItemsView/ItemsView.fixture.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/templates/ItemsView/ItemsView.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/templates/ItemsView/ItemsView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/reducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/trelloContext.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1eJb29EkLlnVPPJEqIp9ahJHVYe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/atoms/Button" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Template/ItemsView" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/atoms/Button" />
+      <recent name="$PROJECT_DIR$/src/components/atoms/Input" />
+      <recent name="$PROJECT_DIR$/src/components/molecules" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4eac369f-c203-4504-a9cf-b0119d79494f" name="Default Changelist" comment="" />
+      <created>1594042432585</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594042432585</updated>
+      <workItem from="1594042434722" duration="18788000" />
+      <workItem from="1594114975523" duration="22729000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="243" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594073930598">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="243" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1594073930598" />
+    <state x="684" y="293" key="FileChooserDialogImpl" timestamp="1594048061546">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="684" y="293" key="FileChooserDialogImpl/0.23.1792.1017@0.23.1792.1017" timestamp="1594048061546" />
+    <state width="1004" height="269" key="GridCell.Tab.0.bottom" timestamp="1594115569436">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1004" height="269" key="GridCell.Tab.0.bottom/0.23.1792.1017@0.23.1792.1017" timestamp="1594115569436" />
+    <state width="1004" height="269" key="GridCell.Tab.0.center" timestamp="1594115569436">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1004" height="269" key="GridCell.Tab.0.center/0.23.1792.1017@0.23.1792.1017" timestamp="1594115569436" />
+    <state width="1004" height="269" key="GridCell.Tab.0.left" timestamp="1594115569435">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1004" height="269" key="GridCell.Tab.0.left/0.23.1792.1017@0.23.1792.1017" timestamp="1594115569435" />
+    <state width="1004" height="269" key="GridCell.Tab.0.right" timestamp="1594115569436">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1004" height="269" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1594115569436" />
+    <state x="100" y="123" width="1592" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1594067505427">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="100" y="123" width="1592" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1594067505427" />
+    <state x="597" y="290" width="922" height="540" key="find.popup" timestamp="1594145798143">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="597" y="290" width="922" height="540" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594145798143" />
+    <state x="597" y="286" width="922" height="490" key="find.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594068819747" />
+    <state x="561" y="248" width="670" height="745" key="search.everywhere.popup" timestamp="1594210801204">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="248" width="670" height="745" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594210801204" />
+    <state x="561" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594048021761" />
+  </component>
+</project>

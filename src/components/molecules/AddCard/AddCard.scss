@@ -1,0 +1,31 @@
+.addCard--wrapper {
+  background-color: transparent;
+  border: none;
+  &--transparent {
+    background-color: hsla(0,0%,100%,.24);
+  }
+}
+
+.addCard {
+  width: 270px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 4px;
+  align-items: center;
+}
+
+.addList--transparent {
+  background-color: hsla(0,0%,100%,.24);
+  color: #fff;
+}
+
+.addCard--label {
+  flex: 2;
+  display: flex;
+}
+
+.addCard--label--icon {
+  margin: auto 0;
+  padding-right: 2px;
+}
