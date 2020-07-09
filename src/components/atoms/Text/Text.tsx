@@ -2,7 +2,7 @@ import * as React from "react";
 
 import "./Text.scss";
 
-export type textSizeType = "lg";
+export type textSizeType = "lg" | "xl";
 export type textColorType = "white" | "black" | "gray";
 export type textWeightType = "bold" | "normal";
 

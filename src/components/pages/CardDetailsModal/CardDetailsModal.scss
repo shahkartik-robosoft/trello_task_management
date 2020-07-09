@@ -1,0 +1,19 @@
+.cardDetailsModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardDetailsModal--header {
+  display: flex;
+  align-items: center;
+}
+
+.cardDetailsModal--cardDetails {
+  display: flex;
+}
+
+.cardDetailsModal--details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}

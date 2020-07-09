@@ -1,6 +1,6 @@
 import * as React from "react";
 import {IListItemProps} from "../components/organisms/ListItem/ListItem";
-import {listItem} from "../components/templates/ItemsView/ItemsView.fixture";
+import {listItem} from "../components/pages/ItemsView/ItemsView.fixture";
 import {ADD_CARD, ADD_TASK, reducer, RENAME_TASK} from "./reducer";
 
 type voidFunction = (value: any) => void;

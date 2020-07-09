@@ -1,0 +1,23 @@
+.cardChecklist {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardChecklist--checklist {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.cardChecklist--header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardChecklist--listItems {
+  margin-left: 35px;
+}
+
+.cardChecklist--Item {
+  margin: 5px 0;
+}
