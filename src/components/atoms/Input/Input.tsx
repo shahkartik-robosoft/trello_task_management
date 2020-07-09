@@ -13,9 +13,9 @@ interface IInputProps {
 const Input: React.SFC<IInputProps> = props => {
     return (
         <input
-            value={props.value}
+            defaultValue={props.value}
             placeholder={props.placeholder}
-            onKeyPress={props.onChange}
+            onKeyUp={props.onChange}
             onInput={props.onInput}
             className='Input' type="input" />
     )

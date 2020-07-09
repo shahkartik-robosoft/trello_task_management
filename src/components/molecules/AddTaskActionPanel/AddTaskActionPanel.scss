@@ -1,0 +1,12 @@
+.addTaskActionPanel {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  height: 100px;
+}
+
+.addTaskActionPanel--panel {
+  display: flex;
+  margin: 5px;
+  justify-content: space-between;
+}

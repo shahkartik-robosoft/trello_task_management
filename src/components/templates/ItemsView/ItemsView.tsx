@@ -1,27 +1,51 @@
 import * as React from "react";
-import ListItem, { IListItemProps } from '../../organisms/ListItem/ListItem';
-import CustomButton from "../../atoms/CustomButton/CustomButton";
+import ListItem  from '../../organisms/ListItem/ListItem';
 import './ItemsView.scss';
+import AddTaskActionPanel from "../../molecules/AddTaskActionPanel/AddCardActionPanel";
+import {IState, ITask} from "../../../redux/Interface";
+import {useDispatch, useSelector} from "react-redux";
+import {Actions} from "../../../redux/enums";
 
 export interface IItemsProps {
-    listItems: Array<IListItemProps>,
-    addNewTask?: (e: any) => void;
+    listItems: Array<ITask>,
+    addNewTask: (taskName: string) => void;
 }
 
 const ItemsView: React.FC<IItemsProps> = props => {
+    const state = useSelector((state: IState) => state);
+    const dispatch = useDispatch();
+    const addCard = (cardName: string, taskId: string) => {
+        console.log('cardName   ', cardName);
+        state.taskList.map(task => {
+            if(task.taskId === taskId) {
+                const card = {
+                    buttonLabel: cardName,
+                    cardId: cardName.split(' ').join('_'),
+                };
+                if (task.taskCards) {
+                    task.taskCards.push(card)
+                } else {
+                    task.taskCards = [card]
+                }
+                return dispatch({type: Actions.ADD_CARD, value: state.taskList});
+            }
+        });
+    }
     return (
         <div className="itemsView">
             {
-                props.listItems.length > 0 && props.listItems
-                .map( (listItem: IListItemProps) => <ListItem listLabel={listItem.listLabel}
-                                                              actionButtonLabel={listItem.actionButtonLabel}
+                props.listItems && props.listItems
+                .map( (listItem: ITask) => <React.Fragment key={listItem.taskId}>
+                                                <ListItem listLabel={listItem.listLabel}
                                                               taskCards={listItem.taskCards}
-                                                              addCardPlaceHolder={listItem.addCardPlaceHolder}
-                                                              saveButtonLabel={listItem.saveButtonLabel} />)
+                                                              onAddCard={addCard}
+                                                              taskId={listItem.taskId}
+                                                              actionButtonLabel="Add Another Card"
+                                                              saveButtonLabel="Add Card"
+                                                              addCardPlaceHolder="Enter a Title for this card..." />
+                                            </React.Fragment>)
                 }
-            <CustomButton className='btn-component--AddNewList' onClick={(e) => props.addNewTask!('in new task')}>
-                + Add another list
-            </CustomButton>
+            <AddTaskActionPanel addItemPlaceHolder="Enter list title..." actionButtonLabel="+ Add Another List" saveButtonLabel="Add List" saveTask={props.addNewTask} />
         </div>
     )
 }

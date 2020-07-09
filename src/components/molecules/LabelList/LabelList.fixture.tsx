@@ -4,7 +4,7 @@ import LabelList from "./LabelList";
 const LabelListCosmos = () => {
     return (
         <div>
-            <LabelList textLabel="To Do" />
+            <LabelList taskId="1" textLabel="To Do" />
         </div>
         )
 }

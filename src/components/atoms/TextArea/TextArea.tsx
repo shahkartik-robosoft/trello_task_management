@@ -7,7 +7,7 @@ interface ITextAreaProps {
 }
 const TextArea: React.SFC<ITextAreaProps> = props => {
     return (
-        <textarea placeholder={props.placeholder} className='textArea' />
+        <textarea placeholder={props.placeholder} onInput={props.onInput} className='textArea' />
     )
 }
 

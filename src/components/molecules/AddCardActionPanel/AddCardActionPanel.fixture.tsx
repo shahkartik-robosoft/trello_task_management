@@ -4,7 +4,7 @@ import AddCardActionPanel from "./AddCardActionPanel";
 const AddCardActionPanelCosmos = () => {
     return (
         <div>
-            <AddCardActionPanel actionButtonLabel="Add Another Card" addCardPlaceHolder="Enter a Title for this card..." saveButtonLabel="Add Card" />
+            <AddCardActionPanel taskId="1" actionButtonLabel="Add Another Card" addCardPlaceHolder="Enter a Title for this card..." saveButtonLabel="Add Card" onAddCard={value => {}} />
         </div>
     )
 }

@@ -5,7 +5,8 @@ import './TaskCard.scss';
 
 export interface ITaskCardProps {
     buttonLabel: string,
-    onClickCard: (e: any) => void,
+    cardId: string,
+    onClickCard?: (e: any) => void,
     children?: React.ReactNode,
 }
 

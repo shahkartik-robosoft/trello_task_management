@@ -5,7 +5,7 @@ import './ListHeader.scss';
 const ListHeaderCosmos = () => {
     return (
         <div>
-            <ListHeader listLabel="list 1" />
+            <ListHeader taskId="1" listLabel="list 1" />
         </div>
     )
 }

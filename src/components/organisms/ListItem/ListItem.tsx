@@ -6,20 +6,25 @@ import AddCardActionPanel from "../../molecules/AddCardActionPanel/AddCardAction
 import './ListItem.scss';
 
 export interface IListItemProps {
+    taskId: string,
     listLabel: string,
     actionButtonLabel: string,
-    taskCards: Array<ITaskCardProps>,
+    taskCards?: Array<ITaskCardProps>,
     addCardPlaceHolder: string,
     saveButtonLabel: string,
+    onAddCard: (cardName: string, taskId: string) => void;
 }
 const ListItem: React.FC<IListItemProps> = prop => {
     return (
         <div className="listItem">
-            <ListHeader listLabel={prop.listLabel} />
+            <ListHeader taskId={prop.taskId} listLabel={prop.listLabel} />
             {
-                prop.taskCards.length > 0 && prop.taskCards.map( taskCard => <TaskCard onClickCard={taskCard.onClickCard} buttonLabel={taskCard.buttonLabel} ><EditIcon /></TaskCard>)
+                prop.taskCards && prop.taskCards.map( taskCard =>
+                    <React.Fragment key={taskCard.cardId}>
+                        <TaskCard cardId={taskCard.cardId} onClickCard={taskCard.onClickCard} buttonLabel={taskCard.buttonLabel} ><EditIcon /></TaskCard>
+                    </React.Fragment>)
             }
-            <AddCardActionPanel actionButtonLabel={prop.actionButtonLabel} addCardPlaceHolder={prop.addCardPlaceHolder} saveButtonLabel={prop.saveButtonLabel} />
+            <AddCardActionPanel taskId={prop.taskId} onAddCard={prop.onAddCard} actionButtonLabel={prop.actionButtonLabel} addCardPlaceHolder={prop.addCardPlaceHolder} saveButtonLabel={prop.saveButtonLabel} />
         </div>
     )
 }

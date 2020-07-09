@@ -16,7 +16,7 @@ interface ITrelloContext {
 
 const initialState: ITrelloContext = {
     taskList: listItem,
-    addCard: (value: any) => {
+    /*addCard: (value: any) => {
         console.log('add Card  ', value);
         // dispatch({ type: ADD_CARD, value });
     },
@@ -27,10 +27,12 @@ const initialState: ITrelloContext = {
     renameTask: (value: any) => {
         console.log('rename task  ', value);
         // dispatch({ type: RENAME_TASK, value });
-    },
+    },*/
 }
 
-export const trelloContext = React.createContext<ITrelloContext>(initialState);
+export const TrelloContext = React.createContext<
+    {state: ITrelloContext,dispatch: React.Dispatch<any>;}
+    >({state: initialState, dispatch: (type: any) => null});
 
 export const TrelloProvider:React.FC = ({ children }: any) => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
@@ -49,13 +51,12 @@ export const TrelloProvider:React.FC = ({ children }: any) => {
             console.log('rename task  ', value);
             dispatch({ type: RENAME_TASK, value });
         },
-
-    }
+    };
 
 
     return (
-        <trelloContext.Provider value={value}>
+        <TrelloContext.Provider value={{state, dispatch}}>
             {children}
-        </trelloContext.Provider>
+        </TrelloContext.Provider>
     )
 }

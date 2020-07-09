@@ -1,6 +1,4 @@
 import * as React from "react";
-import classNames from 'classnames';
-
 import "./CustomButton.scss";
 
 export interface CustomButtonInterface {
@@ -15,7 +13,6 @@ const CustomButton = ({
   onClick,
   ...rest
 }: CustomButtonInterface) => {
-  console.log('onCLic   ', onClick);
   return (
     <button {...rest} onClick={() => onClick!('comp')} className={`btn-component ${className}`} >
       {children}

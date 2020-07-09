@@ -5,11 +5,12 @@ import './ListHeader.scss';
 
 interface IListHeaderProps {
     listLabel: string,
+    taskId: string,
 }
 const ListHeader: React.FC<IListHeaderProps> = props => {
     return (
         <div className="listHeader">
-            <LabelList textLabel={props.listLabel} />
+            <LabelList taskId={props.taskId} textLabel={props.listLabel} />
             <CustomButton>...</CustomButton>
         </div>
     )
