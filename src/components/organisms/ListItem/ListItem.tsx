@@ -4,12 +4,9 @@ import TaskCard, { ITaskCardProps } from "../../molecules/TaskCard/TaskCard";
 import EditIcon from "@material-ui/icons/Edit";
 import AddCardActionPanel from "../../molecules/AddCardActionPanel/AddCardActionPanel";
 import './ListItem.scss';
-import * as R from 'ramda';
 import {useDispatch, useSelector} from "react-redux";
 import {IState} from "../../../redux/Interface";
 import {Actions} from "../../../redux/enums";
-import {Simulate} from "react-dom/test-utils";
-import drag = Simulate.drag;
 
 export interface IListItemProps {
     taskId: string,
@@ -46,6 +43,7 @@ const ListItem: React.FC<IListItemProps> = prop => {
         return dispatch({type: Actions.DRAG_DROP_CARD, value: state.taskList});
 
     }
+
     return (
         <div className="listItem">
             <ListHeader taskId={prop.taskId} listLabel={prop.listLabel} />
