@@ -17,6 +17,7 @@ function reducer(state = initState, action: any): IState {
         case Actions.ADD_CARD:
         case Actions.ADD_TASK:
         case Actions.RENAME_TASK:
+        case Actions.DRAG_DROP_CARD:
             console.log('in reducer  ', state);
             return {taskList: action.value}
         case Actions.RESET:

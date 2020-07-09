@@ -21,6 +21,7 @@ const ItemsView: React.FC<IItemsProps> = props => {
                 const card = {
                     buttonLabel: cardName,
                     cardId: cardName.split(' ').join('_'),
+                    taskId,
                 };
                 if (task.taskCards) {
                     task.taskCards.push(card)
