@@ -5,6 +5,7 @@ export interface CustomButtonInterface {
   children: React.ReactNode;
   className?: string;
   onClick?: (e:any) => void,
+  style?: {},
 }
 
 const CustomButton = ({
@@ -14,7 +15,7 @@ const CustomButton = ({
   ...rest
 }: CustomButtonInterface) => {
   return (
-    <button {...rest} onClick={() => onClick!('comp')} className={`btn-component ${className}`} >
+    <button {...rest} onClick={(e) => onClick!(e)} className={`btn-component ${className}`} >
       {children}
     </button>
   );

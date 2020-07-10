@@ -20,26 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4eac369f-c203-4504-a9cf-b0119d79494f" name="Default Changelist" comment="Added Drag and drop feature.">
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.fixture.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardDescription/CardDescription.fixture.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardDescription/CardDescription.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardDescription/CardDescription.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardLabels/CardLabels.fixture.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardLabels/CardLabels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardLabels/CardLabels.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.fixture.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CardModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddChecklIstDetails/AddChecklistDetails.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddChecklIstDetails/AddChecklistDetails.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddChecklist/AddChecklist.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/AddChecklist/Addchecklist.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardDetailsActionPanel/CardDetailsActionPanel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/CardDetailsActionPanel/CardDetailsActionPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/ColorPallet/ColorPallet.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/ColorPallet/ColorPallet.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/CustomButton/CustomButton.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/CustomButton/CustomButton.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Text/Text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Text/Text.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Text/Text.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Text/Text.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/TextArea/TextArea.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/CustomButton/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/CustomButton/CustomButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.fixture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.fixture.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/CardDescription/CardDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CardDescription/CardDescription.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.fixture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.fixture.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.fixture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.fixture.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ItemsView/ItemsView.fixture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/ItemsView/ItemsView.fixture.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ItemsView/ItemsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/ItemsView/ItemsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/Interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/Interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/enums.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,16 +78,16 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/atoms/Button" />
+      <recent name="$PROJECT_DIR$/src/components/atoms/Input" />
+      <recent name="$PROJECT_DIR$/src/components/molecules" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/Template/ItemsView" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/atoms/Button" />
-      <recent name="$PROJECT_DIR$/src/components/atoms/Input" />
-      <recent name="$PROJECT_DIR$/src/components/molecules" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -146,10 +153,18 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="709" y="283" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1594233855239" />
+    <state x="584" y="303" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594385578856">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="584" y="303" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594385578856" />
     <state x="243" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594073930598">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="243" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1594073930598" />
+    <state x="470" y="100" width="1222" height="920" key="DiffContextDialog" timestamp="1594389098550">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="470" y="100" width="1222" height="920" key="DiffContextDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594389098550" />
     <state x="684" y="293" key="FileChooserDialogImpl" timestamp="1594048061546">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
@@ -170,6 +185,10 @@
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state width="1004" height="269" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1594115569436" />
+    <state x="385" y="325" key="VCS.ChangeListViewerDialog" timestamp="1594388772374">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="385" y="325" key="VCS.ChangeListViewerDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594388772374" />
     <state x="496" y="300" key="Vcs.Push.Dialog.v2" timestamp="1594295791895">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -179,15 +198,19 @@
     </state>
     <state x="100" y="110" width="1592" height="900" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594236645023" />
     <state x="100" y="123" width="1592" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1594067505427" />
-    <state x="840" y="228" width="922" height="548" key="find.popup" timestamp="1594303635068">
+    <state x="840" y="228" width="922" height="548" key="find.popup" timestamp="1594417170484">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="840" y="228" width="922" height="548" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594303635068" />
+    <state x="840" y="228" width="922" height="548" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594417170484" />
     <state x="597" y="286" width="922" height="490" key="find.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594068819747" />
-    <state x="561" y="248" width="670" height="745" key="search.everywhere.popup" timestamp="1594304446305">
+    <state x="1096" y="548" key="git4idea.ui.GitUnstashDialog" timestamp="1594388774115">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="248" width="670" height="745" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594304446305" />
+    <state x="1096" y="548" key="git4idea.ui.GitUnstashDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594388774115" />
+    <state x="561" y="248" width="670" height="745" key="search.everywhere.popup" timestamp="1594416315124">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="248" width="670" height="745" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594416315124" />
     <state x="561" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594048021761" />
   </component>
 </project>

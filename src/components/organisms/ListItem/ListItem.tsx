@@ -7,12 +7,13 @@ import './ListItem.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {IState} from "../../../redux/Interface";
 import {Actions} from "../../../redux/enums";
+import {ICardDetailsModalProps} from "../../pages/CardDetailsModal/CardDetailsModal";
 
 export interface IListItemProps {
     taskId: string,
     listLabel: string,
     actionButtonLabel: string,
-    taskCards?: Array<ITaskCardProps>,
+    taskCards?: Array<ICardDetailsModalProps>,
     addCardPlaceHolder: string,
     saveButtonLabel: string,
     onAddCard: (cardName: string, taskId: string) => void;
@@ -28,8 +29,8 @@ const ListItem: React.FC<IListItemProps> = prop => {
         const originTaskId = e.dataTransfer.getData('taskId');
         const taskCards = state.taskList.filter( task => task.taskId === originTaskId)
             .map(task => task.taskCards)[0];
-        const draggedCard = taskCards!.filter(card => card.cardId === cardId)
-        const originTaskCards = taskCards!.filter(card => card!.cardId !== cardId);
+        const draggedCard = taskCards!.filter(card => card.card.cardId === cardId)
+        const originTaskCards = taskCards!.filter(card => card!.card.cardId !== cardId);
         state.taskList.map(task => {
             if (task.taskId === destinTaskId) {
                 task.taskCards = task.taskCards?.concat(draggedCard);
@@ -41,7 +42,10 @@ const ListItem: React.FC<IListItemProps> = prop => {
             }
         });
         return dispatch({type: Actions.DRAG_DROP_CARD, value: state.taskList});
+    }
 
+    const selectCard = (cardId: string, taskId: string) => {
+        return dispatch({ type: Actions.SELECT_CARD, value: {cardId, taskId }});
     }
 
     return (
@@ -50,8 +54,8 @@ const ListItem: React.FC<IListItemProps> = prop => {
             <div className="listItem--droppable" onDragOver={e => onDragOver(e)} onDrop={e => onDropCard(e, prop.taskId)}>
             {
                 prop.taskCards && prop.taskCards.map( taskCard =>
-                    <React.Fragment key={taskCard.cardId}>
-                        <TaskCard taskId={prop.taskId} cardId={taskCard.cardId} onClickCard={taskCard.onClickCard} buttonLabel={taskCard.buttonLabel} ><EditIcon /></TaskCard>
+                    <React.Fragment key={taskCard.card.cardId}>
+                        <TaskCard taskId={prop.taskId} cardId={taskCard.card.cardId} onClickCard={() => selectCard(taskCard.card.cardId, prop.taskId)} buttonLabel={taskCard.card.buttonLabel} ><EditIcon /></TaskCard>
                     </React.Fragment>)
             }
             </div>

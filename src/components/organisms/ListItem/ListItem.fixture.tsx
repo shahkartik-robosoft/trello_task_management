@@ -1,27 +1,48 @@
 import * as React from "react";
 import ListItem from "./ListItem";
-import {ITaskCardProps} from "../../molecules/TaskCard/TaskCard";
 import {StoreProvider} from "../../../redux/store";
+import {ICardDetailsModalProps} from "../../pages/CardDetailsModal/CardDetailsModal";
 
 const ListItemCosmos = () => {
-    const tasCards: Array<ITaskCardProps> = [
+    const tasCards: Array<ICardDetailsModalProps> = [
         {
-            buttonLabel: 'card 1',
-            cardId: '1',
-            taskId: '1',
-            onClickCard: () => {}
+            card: {
+                buttonLabel: 'card 1',
+                cardId: '1',
+                taskId: '1',
+            },
+            cardLabels: [],
+            cardDescription: {
+                description: 'description ',
+                addDescription: (desc) => {},
+            },
+            cardChecklist: []
         },
         {
-            buttonLabel: 'card 2',
-            cardId: '2',
-            taskId: '2',
-            onClickCard: () => {}
+            card: {
+                buttonLabel: 'card 2',
+                cardId: '2',
+                taskId: '2',
+            },
+            cardLabels: [],
+            cardDescription: {
+                description: 'description ',
+                addDescription: (desc) => {},
+            },
+            cardChecklist: []
         },
         {
-            buttonLabel: 'card 3',
-            cardId: '3',
-            taskId: '3',
-            onClickCard: () => {}
+            card: {
+                buttonLabel: 'card 3',
+                cardId: '3',
+                taskId: '3',
+            },
+            cardLabels: [],
+            cardDescription: {
+                description: 'description ',
+                addDescription: (desc) => {},
+            },
+            cardChecklist: []
         }
     ];
     return (

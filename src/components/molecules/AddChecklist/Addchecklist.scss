@@ -1,0 +1,17 @@
+.addChecklist {
+  position: absolute;
+  width: 300px;
+  top: 300px;
+  right: 250px;
+  justify-content: space-between;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  padding: 2px;
+}
+
+.addChecklist--header {
+  display: flex;
+  margin: 5px 5px 10px 5px;
+}

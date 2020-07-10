@@ -15,7 +15,6 @@ const ItemsView: React.FC<IItemsProps> = props => {
     const state = useSelector((state: IState) => state);
     const dispatch = useDispatch();
     const addCard = (cardName: string, taskId: string) => {
-        console.log('cardName   ', cardName);
         state.taskList.map(task => {
             if(task.taskId === taskId) {
                 const card = {
@@ -23,10 +22,19 @@ const ItemsView: React.FC<IItemsProps> = props => {
                     cardId: cardName.split(' ').join('_'),
                     taskId,
                 };
+                const cardDetails = {
+                    card,
+                    cardLabels: [],
+                    cardDescription: {
+                        cardDescription: '',
+                        addDescription: (description: string) => {},
+                    },
+                    cardChecklist: [],
+                }
                 if (task.taskCards) {
-                    task.taskCards.push(card)
+                    task.taskCards.push(cardDetails)
                 } else {
-                    task.taskCards = [card]
+                    task.taskCards = [cardDetails]
                 }
                 return dispatch({type: Actions.ADD_CARD, value: state.taskList});
             }

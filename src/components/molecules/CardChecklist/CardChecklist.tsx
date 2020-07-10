@@ -3,18 +3,23 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import CustomButton from "../../atoms/CustomButton/CustomButton";
 import './CardChecklist.scss';
+import AddCheckListDetails from "../AddChecklIstDetails/AddChecklistDetails";
 
 export interface IChecklist {
     checklistId: string,
     checklist: string,
-    checklistItems: Array<string>
+    checklistItems?: Array<string>,
 }
 
 interface ICardChecklistProps {
-    checklists: Array<IChecklist>
+    checklists: Array<IChecklist>,
+    addChecklistDetails: (checklist: string, checklistId: string) => void;
 }
 
 const CardChecklist: React.FC<ICardChecklistProps> = props => {
+    const addCheckList = (checklist: string, checklistId: string) => {
+        props.addChecklistDetails(checklist, checklistId);
+    }
     return (
         <div className="cardChecklist">
             {
@@ -27,9 +32,10 @@ const CardChecklist: React.FC<ICardChecklistProps> = props => {
                         </div>
                         <div className="cardChecklist--listItems">
                             {
-                                checklist.checklistItems.length > 0 && checklist.checklistItems.map(checklist => <div className="cardChecklist--Item" key={checklist}>{checklist}</div>)
+                                checklist.checklistItems && checklist.checklistItems.map(checklist => <div className="cardChecklist--Item" key={checklist}>{checklist}</div>)
                             }
                         </div>
+                        <AddCheckListDetails addItemPlaceHolder="Add checklist items" saveButtonLabel="save" saveChecklist={(checkListDetails) => addCheckList(checkListDetails, checklist.checklistId)} />
                     </div>
                 ))
             }

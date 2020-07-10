@@ -1,0 +1,12 @@
+.cardDetailsActionPanel {
+  display: flex;
+  flex-direction: column;
+  margin: 5% 1%;
+  justify-content: space-around;
+}
+
+.cardDetailsActionPanel--button {
+  vertical-align: super;
+  font-size: 16px;
+  padding-left: 10px;
+}

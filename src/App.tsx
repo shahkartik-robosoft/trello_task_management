@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {IState, ITask} from "./redux/Interface";
 import ItemsView from "./components/pages/ItemsView/ItemsView";
 import {Actions} from "./redux/enums";
+import CardModal from "./components/CardModal";
 
 const App: React.FC = () => {
     const state = useSelector((state: IState) => state);
@@ -10,7 +11,7 @@ const App: React.FC = () => {
     const addTask = (taskName: string) => {
         const item: ITask = {
             listLabel: taskName,
-            taskId: taskName.split('').join('_'),
+            taskId: taskName.split(' ').join('_'),
             taskCards: [],
         };
         state.taskList.push(item);
@@ -19,6 +20,7 @@ const App: React.FC = () => {
   return (
       <React.Fragment>
           <ItemsView listItems={state.taskList!} addNewTask={addTask}/>
+          <CardModal />
       </React.Fragment>
   );
 };

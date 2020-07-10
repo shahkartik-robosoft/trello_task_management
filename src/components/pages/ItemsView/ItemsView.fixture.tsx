@@ -14,22 +14,43 @@ export const listItem: Array<IListItemProps> = [
         addCardPlaceHolder: "Enter a Title for this card...",
         taskCards: [
             {
-                buttonLabel: 'card 1',
-                cardId: '1',
-                taskId: '1',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 1',
+                    cardId: '1',
+                    taskId: '1',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             },
             {
-                buttonLabel: 'card 2',
-                cardId: '2',
-                taskId: '2',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 2',
+                    cardId: '2',
+                    taskId: '2',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             },
             {
-                buttonLabel: 'card 3',
-                cardId: '3',
-                taskId: '3',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 3',
+                    cardId: '3',
+                    taskId: '3',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             }
         ]
     },
@@ -42,22 +63,43 @@ export const listItem: Array<IListItemProps> = [
         addCardPlaceHolder: "Enter a Title for this card...",
         taskCards: [
             {
-                buttonLabel: 'card 11',
-                cardId: '1',
-                taskId: '1',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 1',
+                    cardId: '1',
+                    taskId: '1',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             },
             {
-                buttonLabel: 'card 22',
-                cardId: '2',
-                taskId: '2',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 2',
+                    cardId: '2',
+                    taskId: '2',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             },
             {
-                buttonLabel: 'card 33',
-                cardId: '3',
-                taskId: '3',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 3',
+                    cardId: '3',
+                    taskId: '3',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             }
         ]
     },
@@ -70,40 +112,43 @@ export const listItem: Array<IListItemProps> = [
         addCardPlaceHolder: "Enter a Title for this card...",
         taskCards: [
             {
-                buttonLabel: 'card 111',
-                cardId: '1',
-                taskId: '1',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 1',
+                    cardId: '1',
+                    taskId: '1',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             },
             {
-                buttonLabel: 'card 333',
-                cardId: '2',
-                taskId: '2',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 2',
+                    cardId: '2',
+                    taskId: '2',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             },
             {
-                buttonLabel: 'card 111',
-                cardId: '3',
-                taskId: '3',
-                onClickCard: () => {}
-            },
-            {
-                buttonLabel: 'card 333',
-                cardId: '4',
-                taskId: '4',
-                onClickCard: () => {}
-            },
-            {
-                buttonLabel: 'card 111',
-                cardId: '5',
-                taskId: '5',
-                onClickCard: () => {}
-            },
-            {
-                buttonLabel: 'card 333',
-                cardId: '6',
-                taskId: '6',
-                onClickCard: () => {}
+                card: {
+                    buttonLabel: 'card 3',
+                    cardId: '3',
+                    taskId: '3',
+                },
+                cardLabels: [],
+                cardDescription: {
+                    description: 'description ',
+                    addDescription: (desc) => {},
+                },
+                cardChecklist: []
             }
         ]
     },

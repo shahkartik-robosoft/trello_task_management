@@ -21,7 +21,7 @@ export const checklists = [
 
 const CardChecklistCosmos = () => {
     return (
-        <CardChecklist checklists={checklists} />
+        <CardChecklist addChecklistDetails={(checklist, id) => {}} checklists={checklists} />
     )
 }
 
