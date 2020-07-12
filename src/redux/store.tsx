@@ -25,6 +25,8 @@ function reducer(state = initState, action: any): IState {
         case Actions.UPDATE_LABELS:
         case Actions.UPDATE_CHECKLIST:
         case Actions.ADD_CHECKLIST_DETAILS:
+        case Actions.UPDATE_CHECKLIST_STATUS:
+        case Actions.DELETE_CHECKLIST:
             return {
                 ...state,
                 taskList: action.value

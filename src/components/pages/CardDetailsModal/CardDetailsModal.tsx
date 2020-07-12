@@ -4,13 +4,14 @@ import CloseIcon from "@material-ui/icons/Close";
 import {ITaskCardProps} from "../../molecules/TaskCard/TaskCard";
 import CardLabels, { ILabels } from "../../molecules/CardLabels/CardLabels";
 import CardDescription, {ICardDescriptionProps} from "../../molecules/CardDescription/CardDescription";
-import CardChecklist, {IChecklist} from "../../molecules/CardChecklist/CardChecklist";
+import CardChecklist, {IChecklist, IChecklistItems} from "../../molecules/CardChecklist/CardChecklist";
 import './CardDetailsModal.scss';
 import Text from "../../atoms/Text/Text";
 import CardDetailsActionPanel, {PopOptions} from "../../molecules/CardDetailsActionPanel/CardDetailsActionPanel";
 import {useDispatch, useSelector} from "react-redux";
 import {IState} from "../../../redux/Interface";
 import {Actions} from "../../../redux/enums";
+import {checklists} from "../../molecules/CardChecklist/CardChecklist.fixture";
 
 export interface ICardDetailsModalProps {
     card: ITaskCardProps;
@@ -20,13 +21,17 @@ export interface ICardDetailsModalProps {
 }
 const CardDetailsModal: React.FC<ICardDetailsModalProps> = props => {
     const state = useSelector((state: IState) => state);
-    const taskId = useSelector((state: IState) => state.cardSelected.taskId);
+    const { taskId, cardId } = useSelector((state: IState) => state.cardSelected);
     const dispatch = useDispatch();
 
     const addDescription = (description: string) => {
         state.taskList.map(task => {
             if (task.taskId === taskId) {
-                task.taskCards!.map(card => card.cardDescription.description = description);
+                task.taskCards!.map(card => {
+                    if (card.card.cardId === cardId) {
+                        card.cardDescription.description = description
+                    }
+                });
             }
         });
         return dispatch({type: Actions.ADD_DESCRIPTION, value: state.taskList});
@@ -36,10 +41,15 @@ const CardDetailsModal: React.FC<ICardDetailsModalProps> = props => {
         state.taskList.map(task => {
             if (task.taskId === taskId) {
                 task.taskCards!.map(card => {
-                    if (param === 'LABELS') {
-                        card.cardLabels = card.cardLabels.concat(value as Array<ILabels>);
-                    } else if (param === 'CHECKLIST') {
-                        card.cardChecklist = card.cardChecklist.concat([{ checklist: (value as string), checklistId: (value as string).split(' ').join('_') }]);
+                    if (card.card.cardId === cardId) {
+                        if (param === 'LABELS') {
+                            card.cardLabels = card.cardLabels.concat(value as Array<ILabels>);
+                        } else if (param === 'CHECKLIST') {
+                            card.cardChecklist = card.cardChecklist.concat([{
+                                checklist: (value as string),
+                                checklistId: (value as string).split(' ').join('_')
+                            }]);
+                        }
                     }
                 });
             }
@@ -51,20 +61,69 @@ const CardDetailsModal: React.FC<ICardDetailsModalProps> = props => {
         state.taskList.map(task => {
             if (task.taskId === taskId) {
                 task.taskCards!.map(card => {
-                    card.cardChecklist.map(checklist => {
-                        if(checklist.checklistId === checklistId) {
-                            if (checklist.checklistItems) {
-                                checklist.checklistItems.push(checklistDetails);
-                            } else {
-                                checklist.checklistItems = [checklistDetails];
+                    if (card.card.cardId === cardId) {
+                        card.cardChecklist.map(checklist => {
+                            if (checklist.checklistId === checklistId) {
+                                const checklistItem: IChecklistItems = {
+                                    checklist: checklistDetails,
+                                    checklistItemId: checklistDetails.split(' ').join('_'),
+                                    isComplete: false
+                                }
+                                if (checklist.checklistItems) {
+                                    checklist.checklistItems.push(checklistItem);
+                                } else {
+                                    checklist.checklistItems = [checklistItem];
+                                }
                             }
-                        }
-                    })
+                        })
+                    }
                 })
             }
         });
         return dispatch({type: Actions.ADD_CHECKLIST_DETAILS, value: state.taskList});
     }
+
+    const updateChecklistStatus = (itemId: string, checklistId: string) => {
+        state.taskList.map(task => {
+            if (task.taskId === taskId) {
+                task.taskCards!.map(card => {
+                    if (card.card.cardId === cardId) {
+                        card.cardChecklist.map(checklist => {
+                            if (checklist.checklistId === checklistId) {
+                                checklist.checklistItems?.map(checklistItem => {
+                                    if (checklistItem.checklistItemId === itemId) {
+                                        checklistItem.isComplete = !checklistItem.isComplete;
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        });
+        return dispatch({type: Actions.UPDATE_CHECKLIST_STATUS, value: state.taskList});
+    }
+
+    const deleteChecklist = (checklistsId: string) => {
+        let filteredChecklist: Array<IChecklist>;
+        state.taskList.map(task => {
+            if (task.taskId === taskId) {
+                    task.taskCards!.map(card => {
+                    filteredChecklist = card.cardChecklist.filter(checklist => checklist.checklistId !== checklistsId);
+                })
+            }
+        })
+        state.taskList.map(task => {
+            if (task.taskId === taskId) {
+                task.taskCards!.map( taskCard => {
+                    if (taskCard.card.cardId === cardId) {
+                        taskCard.cardChecklist = filteredChecklist;
+                    }
+                })
+            }
+        })
+        return dispatch({type: Actions.DELETE_CHECKLIST, value: state.taskList});
+    };
 
     return (
         <div className="cardDetailsModal">
@@ -77,7 +136,7 @@ const CardDetailsModal: React.FC<ICardDetailsModalProps> = props => {
                 <div className="cardDetailsModal--details">
                     <div style={{ margin: '20px', marginLeft: '60px' }}><CardLabels labels={props.cardLabels} /></div>
                     <div style={{ margin: '20px' }}><CardDescription description={props.cardDescription.description} addDescription={addDescription} /></div>
-                        <div style={{ margin: '20px' }}><CardChecklist checklists={props.cardChecklist} addChecklistDetails={saveChecklistDetails} /></div>
+                        <div style={{ margin: '20px' }}><CardChecklist checklists={props.cardChecklist} addChecklistDetails={saveChecklistDetails} updateChecklistStatus={updateChecklistStatus} deleteChecklist={deleteChecklist} /></div>
                 </div>
                 <CardDetailsActionPanel onClick={actionPanelActions} />
             </div>

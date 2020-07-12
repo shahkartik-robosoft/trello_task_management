@@ -1,27 +1,47 @@
 import * as React from "react";
-import CardChecklist from "./CardChecklist";
+import CardChecklist, {IChecklist} from "./CardChecklist";
 
-export const checklists = [
+export const checklists: Array<IChecklist> = [
     {
         checklistId: '1',
         checklist: 'checklist 1',
-        checklistItems: ['to DO', 'done', 'WIP']
+        checklistItems: [
+            {
+                checklist: 'to DO',
+                checklistItemId: 'to_do',
+                isComplete: true,
+            }
+        ]
     },
     {
         checklistId: '2',
         checklist: 'checklist 2',
-        checklistItems: ['to DO  222', 'done  222 ', 'WIP  2222 ']
+        checklistItems: [
+            {
+                checklist: 'to DO done',
+                checklistItemId: 'to_do_done',
+                isComplete: false,
+            }
+        ]
     },
     {
         checklistId: '3',
         checklist: 'checklist 3',
-        checklistItems: ['to DO   3333', 'done  33333', 'WIP   33333']
-    }
+        checklistItems: [
+            {
+                checklist: 'In progress',
+                checklistItemId: 'In_progress',
+                isComplete: true,
+            }
+        ]
+    },
 ]
 
 const CardChecklistCosmos = () => {
     return (
-        <CardChecklist addChecklistDetails={(checklist, id) => {}} checklists={checklists} />
+        <CardChecklist addChecklistDetails={(checklist, id) => {}}
+                       updateChecklistStatus={(itemId: string, checklistId: string) => {}}
+                       deleteChecklist={(checklistId: string) => {}} checklists={checklists} />
     )
 }
 

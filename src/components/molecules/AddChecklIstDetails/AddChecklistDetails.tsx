@@ -29,7 +29,7 @@ const AddCheckListDetails: React.FC<IAddCheckListDetails> = props => {
         )
     }
     return (
-        <CustomButton style={{ width: '10%' }} className='btn-component--AddAction' onClick={() => setAddingItem(true)}>
+        <CustomButton className='btn-component--gray' onClick={() => setAddingItem(true)}>
             Add Items
         </CustomButton>
     )

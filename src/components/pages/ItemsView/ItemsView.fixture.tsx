@@ -77,8 +77,8 @@ export const listItem: Array<IListItemProps> = [
             },
             {
                 card: {
-                    buttonLabel: 'card 2',
-                    cardId: '2',
+                    buttonLabel: 'card 22s2',
+                    cardId: '2222',
                     taskId: '2',
                 },
                 cardLabels: [],
@@ -90,8 +90,8 @@ export const listItem: Array<IListItemProps> = [
             },
             {
                 card: {
-                    buttonLabel: 'card 3',
-                    cardId: '3',
+                    buttonLabel: 'card 333332',
+                    cardId: '32222',
                     taskId: '3',
                 },
                 cardLabels: [],
@@ -115,7 +115,7 @@ export const listItem: Array<IListItemProps> = [
                 card: {
                     buttonLabel: 'card 1',
                     cardId: '1',
-                    taskId: '1',
+                    taskId: '1111',
                 },
                 cardLabels: [],
                 cardDescription: {
@@ -126,22 +126,9 @@ export const listItem: Array<IListItemProps> = [
             },
             {
                 card: {
-                    buttonLabel: 'card 2',
-                    cardId: '2',
-                    taskId: '2',
-                },
-                cardLabels: [],
-                cardDescription: {
-                    description: 'description ',
-                    addDescription: (desc) => {},
-                },
-                cardChecklist: []
-            },
-            {
-                card: {
-                    buttonLabel: 'card 3',
-                    cardId: '3',
-                    taskId: '3',
+                    buttonLabel: 'card 33',
+                    cardId: '33',
+                    taskId: '33',
                 },
                 cardLabels: [],
                 cardDescription: {

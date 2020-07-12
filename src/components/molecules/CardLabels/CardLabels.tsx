@@ -18,7 +18,7 @@ const CardLabels: React.FC<ICardLabelsProps> = props => {
             <Text textLabel="LABELS" color="gray" />
             <div className="cardLabels--labels">
                 {
-                    props.labels.map( label => <CustomButton className={`btn-component--${label.color}`}>{label.label}</CustomButton>)
+                    props.labels.map( label => <CustomButton key={label.labelId} className={`btn-component--${label.color}`}>{label.label}</CustomButton>)
                 }
                 <CustomButton className='btn-component--gray'>+</CustomButton>
             </div>

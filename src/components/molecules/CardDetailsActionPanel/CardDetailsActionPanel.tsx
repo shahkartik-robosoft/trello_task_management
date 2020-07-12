@@ -49,7 +49,7 @@ const CardDetailsActionPanel: React.FC<ICardDetailsActionPanelProps> = props => 
 
     return (
         <div className="cardDetailsActionPanel">
-            <Text textLabel="ADD TO CARD" color="gray" fontSize="lg" />
+            <Text textLabel="ADD TO CARD" color="gray" fontSize="lg" style={{ margin: '0 auto' }} />
             <CustomButton className={`btn-component--gray`} onClick={openLabelOptions}>
                 {<LabelIcon />}<span className="cardDetailsActionPanel--button">Label</span>
             </CustomButton>
