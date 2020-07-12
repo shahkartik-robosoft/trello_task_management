@@ -24,7 +24,7 @@ const ListItem: React.FC<IListItemProps> = prop => {
     const onDragOver = (e: any) => {
         e.preventDefault();
     }
-    const onDropCard = (e: any, destinTaskId: string) => {
+    const onDropCard = (e: any, destinTaskId: string, index: number) => {
         const cardId = e.dataTransfer.getData('cardId');
         const originTaskId = e.dataTransfer.getData('taskId');
         const taskCards = state.taskList.filter( task => task.taskId === originTaskId)
@@ -33,7 +33,8 @@ const ListItem: React.FC<IListItemProps> = prop => {
         const originTaskCards = taskCards!.filter(card => card!.card.cardId !== cardId);
         state.taskList.map(task => {
             if (task.taskId === destinTaskId) {
-                task.taskCards = task.taskCards?.concat(draggedCard);
+                task.taskCards?.splice(index, 0, ...draggedCard);
+                // task.taskCards = task.taskCards?.concat(draggedCard);
             }
         })
         state.taskList.map(task => {
@@ -51,12 +52,12 @@ const ListItem: React.FC<IListItemProps> = prop => {
     return (
         <div className="listItem">
             <ListHeader taskId={prop.taskId} listLabel={prop.listLabel} />
-            <div className="listItem--droppable" onDragOver={e => onDragOver(e)} onDrop={e => onDropCard(e, prop.taskId)}>
+            <div className="listItem--droppable">
             {
-                prop.taskCards && prop.taskCards.map( taskCard =>
-                    <React.Fragment key={taskCard.card.cardId}>
+                prop.taskCards && prop.taskCards.map( (taskCard, index) =>
+                    <div key={taskCard.card.cardId} onDragOver={e => onDragOver(e)} onDrop={e => onDropCard(e, prop.taskId, index)}>
                         <TaskCard taskId={prop.taskId} cardId={taskCard.card.cardId} onClickCard={() => selectCard(taskCard.card.cardId, prop.taskId)} buttonLabel={taskCard.card.buttonLabel} ><EditIcon /></TaskCard>
-                    </React.Fragment>)
+                    </div>)
             }
             </div>
             <AddCardActionPanel taskId={prop.taskId} onAddCard={prop.onAddCard} actionButtonLabel={prop.actionButtonLabel} addCardPlaceHolder={prop.addCardPlaceHolder} saveButtonLabel={prop.saveButtonLabel} />
