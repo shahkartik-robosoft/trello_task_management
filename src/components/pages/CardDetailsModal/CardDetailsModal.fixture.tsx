@@ -3,7 +3,8 @@ import CardDetailsModal from "./CardDetailsModal";
 import { ITaskCardProps } from "../../molecules/TaskCard/TaskCard";
 import {labels} from "../../molecules/CardLabels/CardLabels.fixture";
 import {checklists} from "../../molecules/CardChecklist/CardChecklist.fixture";
-import {StoreProvider} from "../../../redux/store";
+import {reducer} from "../../../context/reducer";
+import {initState, TrelloContext} from "../../../context/trelloContext";
 
 const card: ITaskCardProps = {
     taskId: "1",
@@ -13,13 +14,14 @@ const card: ITaskCardProps = {
 
 
 const CardDetailsModalCosmos = () => {
+    const [state, dispatch] = React.useReducer(reducer, initState);
     return (
-        <StoreProvider>
+        <TrelloContext.Provider value={{ state, dispatch}}>
         <CardDetailsModal card={card}
                           cardLabels={labels}
                           cardDescription={{description: 'Description of card is mentioned here', addDescription: (desc) => {}}}
                           cardChecklist={checklists} />
-        </StoreProvider>
+        </TrelloContext.Provider>
     )
 };
 

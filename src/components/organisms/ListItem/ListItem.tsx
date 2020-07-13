@@ -4,10 +4,10 @@ import TaskCard, { ITaskCardProps } from "../../molecules/TaskCard/TaskCard";
 import EditIcon from "@material-ui/icons/Edit";
 import AddCardActionPanel from "../../molecules/AddCardActionPanel/AddCardActionPanel";
 import './ListItem.scss';
-import {useDispatch, useSelector} from "react-redux";
-import {IState} from "../../../redux/Interface";
-import {Actions} from "../../../redux/enums";
+import {IState} from "../../../context/Interface";
+import {Actions} from "../../../context/enums";
 import {ICardDetailsModalProps} from "../../pages/CardDetailsModal/CardDetailsModal";
+import {TrelloContext} from "../../../context/trelloContext";
 
 export interface IListItemProps {
     taskId: string,
@@ -19,34 +19,34 @@ export interface IListItemProps {
     onAddCard: (cardName: string, taskId: string) => void;
 }
 const ListItem: React.FC<IListItemProps> = prop => {
-    const state = useSelector((state: IState) => state);
-    const dispatch = useDispatch();
+    const state = React.useContext(TrelloContext)?.state;
+    const dispatch = React.useContext(TrelloContext)?.dispatch;
     const onDragOver = (e: any) => {
         e.preventDefault();
     }
     const onDropCard = (e: any, destinTaskId: string, index: number) => {
         const cardId = e.dataTransfer.getData('cardId');
         const originTaskId = e.dataTransfer.getData('taskId');
-        const taskCards = state.taskList.filter( task => task.taskId === originTaskId)
+        const taskCards = state!.taskList.filter( task => task.taskId === originTaskId)
             .map(task => task.taskCards)[0];
         const draggedCard = taskCards!.filter(card => card.card.cardId === cardId)
         const originTaskCards = taskCards!.filter(card => card!.card.cardId !== cardId);
-        state.taskList.map(task => {
+        state!.taskList.map(task => {
             if (task.taskId === destinTaskId) {
                 task.taskCards?.splice(index, 0, ...draggedCard);
                 // task.taskCards = task.taskCards?.concat(draggedCard);
             }
         })
-        state.taskList.map(task => {
+        state!.taskList.map(task => {
             if (task.taskId === originTaskId) {
                 task.taskCards = originTaskCards;
             }
         });
-        return dispatch({type: Actions.DRAG_DROP_CARD, value: state.taskList});
+        return dispatch!({type: Actions.DRAG_DROP_CARD, value: state!.taskList});
     }
 
     const selectCard = (cardId: string, taskId: string) => {
-        return dispatch({ type: Actions.SELECT_CARD, value: {cardId, taskId }});
+        return dispatch!({ type: Actions.SELECT_CARD, value: {cardId, taskId }});
     }
 
     return (

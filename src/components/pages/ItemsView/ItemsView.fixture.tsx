@@ -1,7 +1,8 @@
 import * as React from "react";
 import ItemsView from "./ItemsView";
 import {IListItemProps} from "../../organisms/ListItem/ListItem";
-import {StoreProvider} from "../../../redux/store";
+import {reducer} from "../../../context/reducer";
+import {initState, TrelloContext} from "../../../context/trelloContext";
 
 
 export const listItem: Array<IListItemProps> = [
@@ -141,12 +142,13 @@ export const listItem: Array<IListItemProps> = [
     },
 ]
 const ItemsViewCosmos = () => {
+    const [state, dispatch] = React.useReducer(reducer, initState);
     return (
-        <StoreProvider>
+        <TrelloContext.Provider value={{ state, dispatch}}>
             <div style={{ display: 'flex', flexDirection:'column', justifyContent:'space-evenly'}}>
                 <ItemsView listItems={listItem} addNewTask={(taskName) => {}} />
             </div>
-        </StoreProvider>
+        </TrelloContext.Provider>
     )
 };
 

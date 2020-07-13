@@ -19,7 +19,7 @@ const CardDescription: React.FC<ICardDescriptionProps> = props => {
                 {
                     props.description ? <Text textLabel={props.description} color="gray"/> :
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <TextArea rowSize={6} placeholder="Add a more detailed description ... "
+                            <TextArea placeholder="Add a more detailed description ... "
                                        onInput={(e: any)=> setDescription(e.target.value)} className='textArea-resizable'/>
                             <CustomButton style={{ width: '10%', margin: '5px' }} className='btn-component--AddAction' onClick={() => props.addDescription(description)}>Save</CustomButton>
                         </div>

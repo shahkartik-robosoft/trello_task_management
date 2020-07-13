@@ -2,9 +2,8 @@ import * as React from 'react';
 import Text from "../../atoms/Text/Text";
 import Input from "../../atoms/Input/Input";
 import './LabelList.scss';
-import {useDispatch, useSelector} from "react-redux";
-import {IState} from "../../../redux/Interface";
-import {Actions} from "../../../redux/enums";
+import {Actions} from "../../../context/enums";
+import {TrelloContext} from "../../../context/trelloContext";
 
 interface IAddNewListProps {
     textLabel: string,
@@ -12,16 +11,16 @@ interface IAddNewListProps {
 }
 
 const LabelList: React.SFC<IAddNewListProps> = props => {
+    const state = React.useContext(TrelloContext)?.state;
+    const dispatch = React.useContext(TrelloContext)?.dispatch;
     const [enableEdit, setEnableEdit] = React.useState(false);
     const [label, setLabel] = React.useState(props.textLabel);
-    const state = useSelector((state: IState) => state);
-    const dispatch = useDispatch();
 
     const updateLabel = () => {
-        state.taskList.map(task => {
+        state!.taskList.map(task => {
             if(task.taskId === props.taskId && task.listLabel !== label) {
                 task.listLabel = label;
-                return dispatch({type: Actions.RENAME_TASK, value: state.taskList});
+                return dispatch!({type: Actions.RENAME_TASK, value: state!.taskList});
             }
         });
     }

@@ -11,8 +11,9 @@ import {ILabels} from "../CardLabels/CardLabels";
 
 
 interface ICardDetailsActionPanelProps {
-    onClick: (param: PopOptions, value: (Array<ILabels> | string)) => {}
+    onClick: (param: PopOptions, value: (Array<ILabels> | string)) => void
 }
+
 
 export type PopOptions = 'LABELS' | 'CHECKLIST' | 'TIMER' |  'none';
 

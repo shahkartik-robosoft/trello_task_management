@@ -2,20 +2,20 @@ import * as React from "react";
 import ListItem  from '../../organisms/ListItem/ListItem';
 import './ItemsView.scss';
 import AddTaskActionPanel from "../../molecules/AddTaskActionPanel/AddCardActionPanel";
-import {IState, ITask} from "../../../redux/Interface";
-import {useDispatch, useSelector} from "react-redux";
-import {Actions} from "../../../redux/enums";
+import {IState, ITask} from "../../../context/Interface";
+import {Actions} from "../../../context/enums";
+import {TrelloContext} from "../../../context/trelloContext";
 
 export interface IItemsProps {
-    listItems: Array<ITask>,
-    addNewTask: (taskName: string) => void;
+    listItems?: Array<ITask>,
+    addNewTask?: (taskName: string) => void;
 }
 
 const ItemsView: React.FC<IItemsProps> = props => {
-    const state = useSelector((state: IState) => state);
-    const dispatch = useDispatch();
+    const state = React.useContext(TrelloContext)?.state;
+    const dispatch = React.useContext(TrelloContext)?.dispatch;
     const addCard = (cardName: string, taskId: string) => {
-        state.taskList.map(task => {
+        state!.taskList.map((task: ITask) => {
             if(task.taskId === taskId) {
                 const card = {
                     buttonLabel: cardName,
@@ -36,14 +36,23 @@ const ItemsView: React.FC<IItemsProps> = props => {
                 } else {
                     task.taskCards = [cardDetails]
                 }
-                return dispatch({type: Actions.ADD_CARD, value: state.taskList});
+                return dispatch!({type: Actions.ADD_CARD, value: state!.taskList});
             }
         });
+    }
+    const addNewTask = (taskName: string) => {
+        const item: ITask = {
+            listLabel: taskName,
+            taskId: taskName.split(' ').join('_'),
+            taskCards: [],
+        };
+        state!.taskList.push(item);
+        return dispatch!({ type: Actions.ADD_TASK, value: state!.taskList });
     }
     return (
         <div className="itemsView">
             {
-                props.listItems && props.listItems
+                state!.taskList && state!.taskList
                 .map( (listItem: ITask) => <React.Fragment key={listItem.taskId}>
                                                 <ListItem listLabel={listItem.listLabel}
                                                               taskCards={listItem.taskCards}
@@ -54,7 +63,7 @@ const ItemsView: React.FC<IItemsProps> = props => {
                                                               addCardPlaceHolder="Enter a Title for this card..." />
                                             </React.Fragment>)
                 }
-            <AddTaskActionPanel addItemPlaceHolder="Enter list title..." actionButtonLabel="+ Add Another List" saveButtonLabel="Add List" saveTask={props.addNewTask} />
+            <AddTaskActionPanel addItemPlaceHolder="Enter list title..." actionButtonLabel="+ Add Another List" saveButtonLabel="Add List" saveTask={addNewTask} />
         </div>
     )
 }

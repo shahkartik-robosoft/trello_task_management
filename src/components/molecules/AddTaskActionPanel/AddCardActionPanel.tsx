@@ -3,6 +3,8 @@ import Input from "../../atoms/Input/Input";
 import CustomButton from "../../atoms/CustomButton/CustomButton";
 import CloseIcon from "@material-ui/icons/Close";
 import './AddTaskActionPanel.scss';
+import {ITask} from "../../../context/Interface";
+import {TrelloContext} from "../../../context/trelloContext";
 
 interface IAddTaskActionPanel {
     addItemPlaceHolder: string,
@@ -12,6 +14,7 @@ interface IAddTaskActionPanel {
 }
 
 const AddTaskActionPanel: React.FC<IAddTaskActionPanel> = props => {
+    const context = React.useContext(TrelloContext);
     const [addingItem, setAddingItem] = React.useState(false);
     const [taskLabel, SetTaskLabel] = React.useState('');
 

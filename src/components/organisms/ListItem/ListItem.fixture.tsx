@@ -1,9 +1,11 @@
 import * as React from "react";
 import ListItem from "./ListItem";
-import {StoreProvider} from "../../../redux/store";
 import {ICardDetailsModalProps} from "../../pages/CardDetailsModal/CardDetailsModal";
+import {reducer} from "../../../context/reducer";
+import {initState, TrelloContext} from "../../../context/trelloContext";
 
 const ListItemCosmos = () => {
+    const [state, dispatch] = React.useReducer(reducer, initState);
     const tasCards: Array<ICardDetailsModalProps> = [
         {
             card: {
@@ -46,7 +48,7 @@ const ListItemCosmos = () => {
         }
     ];
     return (
-        <StoreProvider>
+        <TrelloContext.Provider value={{ state, dispatch}}>
             <div style={{ display: 'flex', flexDirection:'column', justifyContent:'space-evenly', height: '60vh'}}>
                     <ListItem taskId="1" listLabel="To Do"
                               actionButtonLabel="Add Another Card"
@@ -55,7 +57,7 @@ const ListItemCosmos = () => {
                               taskCards={tasCards}
                               onAddCard= {name => {}} />
             </div>
-        </StoreProvider>
+        </TrelloContext.Provider>
     )
 };
 

@@ -3,9 +3,9 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import CardDetailsModal from "./pages/CardDetailsModal/CardDetailsModal";
-import {useDispatch, useSelector} from "react-redux";
-import {IState} from "../redux/Interface";
-import {Actions} from "../redux/enums";
+import {IState} from "../context/Interface";
+import {Actions} from "../context/enums";
+import {TrelloContext} from "../context/trelloContext";
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -36,18 +36,18 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function CardModal() {
-    const state = useSelector((state: IState) => state);
-    const dispatch = useDispatch();
+    const state = React.useContext(TrelloContext)?.state;
+    const dispatch = React.useContext(TrelloContext)?.dispatch;
     const [open, setOpen] = React.useState(true);
 
     const handleClose = () => {
         // setOpen(false);
-        return dispatch({ type: Actions.SELECT_CARD, value: {cardId: '', taskId: '' }});
+        return dispatch!({ type: Actions.SELECT_CARD, value: {cardId: '', taskId: '' }});
     };
 
-    if (state.cardSelected.taskId !== '') {
-        const card = state.taskList.filter(task => task.taskId === state.cardSelected.taskId)[0]
-            .taskCards!.filter(Card => Card.card.cardId === state.cardSelected.cardId)[0];
+    if (state!.cardSelected.taskId !== '') {
+        const card = state!.taskList.filter(task => task.taskId === state!.cardSelected.taskId)[0]
+            .taskCards!.filter(Card => Card.card.cardId === state!.cardSelected.cardId)[0];
         const body = <CardDetailsModal
             card={card.card}
             cardLabels={card.cardLabels}

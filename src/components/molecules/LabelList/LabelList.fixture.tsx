@@ -1,14 +1,16 @@
 import * as React from "react";
 import LabelList from "./LabelList";
-import {StoreProvider} from "../../../redux/store";
+import {initState, TrelloContext} from "../../../context/trelloContext";
+import {reducer} from "../../../context/reducer";
 
 const LabelListCosmos = () => {
+    const [state, dispatch] = React.useReducer(reducer, initState);
     return (
-        <StoreProvider>
+        <TrelloContext.Provider value={{ state, dispatch}}>
             <div>
                 <LabelList taskId="1" textLabel="To Do" />
             </div>
-        </StoreProvider>
+        </TrelloContext.Provider>
         )
 }
 
