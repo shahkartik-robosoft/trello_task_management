@@ -1,13 +1,13 @@
 import * as React from "react";
 import ListHeader from "../../molecules/ListHeader/ListHeader";
-import TaskCard, { ITaskCardProps } from "../../molecules/TaskCard/TaskCard";
+import TaskCard  from "../../molecules/TaskCard/TaskCard";
 import EditIcon from "@material-ui/icons/Edit";
 import AddCardActionPanel from "../../molecules/AddCardActionPanel/AddCardActionPanel";
 import './ListItem.scss';
-import {IState} from "../../../context/Interface";
 import {Actions} from "../../../context/enums";
 import {ICardDetailsModalProps} from "../../pages/CardDetailsModal/CardDetailsModal";
 import {TrelloContext} from "../../../context/trelloContext";
+import {dispatchOnDropCard} from "../../../context/actions";
 
 export interface IListItemProps {
     taskId: string,
@@ -25,24 +25,7 @@ const ListItem: React.FC<IListItemProps> = prop => {
         e.preventDefault();
     }
     const onDropCard = (e: any, destinTaskId: string, index: number) => {
-        const cardId = e.dataTransfer.getData('cardId');
-        const originTaskId = e.dataTransfer.getData('taskId');
-        const taskCards = state!.taskList.filter( task => task.taskId === originTaskId)
-            .map(task => task.taskCards)[0];
-        const draggedCard = taskCards!.filter(card => card.card.cardId === cardId)
-        const originTaskCards = taskCards!.filter(card => card!.card.cardId !== cardId);
-        state!.taskList.map(task => {
-            if (task.taskId === destinTaskId) {
-                task.taskCards?.splice(index, 0, ...draggedCard);
-                // task.taskCards = task.taskCards?.concat(draggedCard);
-            }
-        })
-        state!.taskList.map(task => {
-            if (task.taskId === originTaskId) {
-                task.taskCards = originTaskCards;
-            }
-        });
-        return dispatch!({type: Actions.DRAG_DROP_CARD, value: state!.taskList});
+        dispatchOnDropCard(e, destinTaskId, index, state!, dispatch);
     }
 
     const selectCard = (cardId: string, taskId: string) => {

@@ -1,6 +1,5 @@
 import * as React from "react";
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
+import Checkbox  from '@material-ui/core/Checkbox';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import CustomButton from "../../atoms/CustomButton/CustomButton";
 import './CardChecklist.scss';

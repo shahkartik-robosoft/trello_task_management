@@ -2,9 +2,9 @@ import * as React from "react";
 import ListItem  from '../../organisms/ListItem/ListItem';
 import './ItemsView.scss';
 import AddTaskActionPanel from "../../molecules/AddTaskActionPanel/AddCardActionPanel";
-import {IState, ITask} from "../../../context/Interface";
-import {Actions} from "../../../context/enums";
+import {ITask} from "../../../context/Interface";
 import {TrelloContext} from "../../../context/trelloContext";
+import {dispatchAddCard, dispatchAddNewTask} from "../../../context/actions";
 
 export interface IItemsProps {
     listItems?: Array<ITask>,
@@ -15,39 +15,10 @@ const ItemsView: React.FC<IItemsProps> = props => {
     const state = React.useContext(TrelloContext)?.state;
     const dispatch = React.useContext(TrelloContext)?.dispatch;
     const addCard = (cardName: string, taskId: string) => {
-        state!.taskList.map((task: ITask) => {
-            if(task.taskId === taskId) {
-                const card = {
-                    buttonLabel: cardName,
-                    cardId: cardName.split(' ').join('_'),
-                    taskId,
-                };
-                const cardDetails = {
-                    card,
-                    cardLabels: [],
-                    cardDescription: {
-                        cardDescription: '',
-                        addDescription: (description: string) => {},
-                    },
-                    cardChecklist: [],
-                }
-                if (task.taskCards) {
-                    task.taskCards.push(cardDetails)
-                } else {
-                    task.taskCards = [cardDetails]
-                }
-                return dispatch!({type: Actions.ADD_CARD, value: state!.taskList});
-            }
-        });
+        dispatchAddCard(cardName, taskId, state!, dispatch);
     }
     const addNewTask = (taskName: string) => {
-        const item: ITask = {
-            listLabel: taskName,
-            taskId: taskName.split(' ').join('_'),
-            taskCards: [],
-        };
-        state!.taskList.push(item);
-        return dispatch!({ type: Actions.ADD_TASK, value: state!.taskList });
+        dispatchAddNewTask(taskName, state!, dispatch);
     }
     return (
         <div className="itemsView">

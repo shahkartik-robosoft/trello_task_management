@@ -4,12 +4,16 @@ import CloseIcon from "@material-ui/icons/Close";
 import {ITaskCardProps} from "../../molecules/TaskCard/TaskCard";
 import CardLabels, { ILabels } from "../../molecules/CardLabels/CardLabels";
 import CardDescription, {ICardDescriptionProps} from "../../molecules/CardDescription/CardDescription";
-import CardChecklist, {IChecklist, IChecklistItems} from "../../molecules/CardChecklist/CardChecklist";
+import CardChecklist, {IChecklist} from "../../molecules/CardChecklist/CardChecklist";
 import './CardDetailsModal.scss';
 import Text from "../../atoms/Text/Text";
 import CardDetailsActionPanel, {PopOptions} from "../../molecules/CardDetailsActionPanel/CardDetailsActionPanel";
-import {Actions} from "../../../context/enums";
 import {TrelloContext} from "../../../context/trelloContext";
+import {
+    dispatchActionPanelActions,
+    dispatchAddDescription, dispatchDeleteChecklist,
+    dispatchSaveChecklistDetails, dispatchUpdateChecklistStatus
+} from "../../../context/actions";
 
 export interface ICardDetailsModalProps {
     card: ITaskCardProps;
@@ -20,107 +24,25 @@ export interface ICardDetailsModalProps {
 const CardDetailsModal: React.FC<ICardDetailsModalProps> = props => {
     const state = React.useContext(TrelloContext)?.state;
     const dispatch = React.useContext(TrelloContext)?.dispatch;
-    const { taskId, cardId } = state!.cardSelected;
 
     const addDescription = (description: string) => {
-        state!.taskList.map(task => {
-            if (task.taskId === taskId) {
-                task.taskCards!.map(card => {
-                    if (card.card.cardId === cardId) {
-                        card.cardDescription.description = description
-                    }
-                });
-            }
-        });
-        return dispatch!({type: Actions.ADD_DESCRIPTION, value: state!.taskList});
+        dispatchAddDescription(description, state!, dispatch);
     }
 
     const actionPanelActions = (param: PopOptions, value: (Array<ILabels> | string)) => {
-        state!.taskList.map(task => {
-            if (task.taskId === taskId) {
-                task.taskCards!.map(card => {
-                    if (card.card.cardId === cardId) {
-                        if (param === 'LABELS') {
-                            card.cardLabels = card.cardLabels.concat(value as Array<ILabels>);
-                        } else if (param === 'CHECKLIST') {
-                            card.cardChecklist = card.cardChecklist.concat([{
-                                checklist: (value as string),
-                                checklistId: (value as string).split(' ').join('_')
-                            }]);
-                        }
-                    }
-                });
-            }
-        });
-        return dispatch!({type: `UPDATE_${param}`, value: state!.taskList});
+        dispatchActionPanelActions(param, value, state!, dispatch);
     }
 
     const saveChecklistDetails = (checklistDetails: string, checklistId: string) => {
-        state!.taskList.map(task => {
-            if (task.taskId === taskId) {
-                task.taskCards!.map(card => {
-                    if (card.card.cardId === cardId) {
-                        card.cardChecklist.map(checklist => {
-                            if (checklist.checklistId === checklistId) {
-                                const checklistItem: IChecklistItems = {
-                                    checklist: checklistDetails,
-                                    checklistItemId: checklistDetails.split(' ').join('_'),
-                                    isComplete: false
-                                }
-                                if (checklist.checklistItems) {
-                                    checklist.checklistItems.push(checklistItem);
-                                } else {
-                                    checklist.checklistItems = [checklistItem];
-                                }
-                            }
-                        })
-                    }
-                })
-            }
-        });
-        return dispatch!({type: Actions.ADD_CHECKLIST_DETAILS, value: state!.taskList});
+        dispatchSaveChecklistDetails(checklistDetails, checklistId, state!, dispatch);
     }
 
     const updateChecklistStatus = (itemId: string, checklistId: string) => {
-        state!.taskList.map(task => {
-            if (task.taskId === taskId) {
-                task.taskCards!.map(card => {
-                    if (card.card.cardId === cardId) {
-                        card.cardChecklist.map(checklist => {
-                            if (checklist.checklistId === checklistId) {
-                                checklist.checklistItems?.map(checklistItem => {
-                                    if (checklistItem.checklistItemId === itemId) {
-                                        checklistItem.isComplete = !checklistItem.isComplete;
-                                    }
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        });
-        return dispatch!({type: Actions.UPDATE_CHECKLIST_STATUS, value: state!.taskList});
+        dispatchUpdateChecklistStatus(itemId, checklistId, state!, dispatch);
     }
 
     const deleteChecklist = (checklistsId: string) => {
-        let filteredChecklist: Array<IChecklist>;
-        state!.taskList.map(task => {
-            if (task.taskId === taskId) {
-                    task.taskCards!.map(card => {
-                    filteredChecklist = card.cardChecklist.filter(checklist => checklist.checklistId !== checklistsId);
-                })
-            }
-        })
-        state!.taskList.map(task => {
-            if (task.taskId === taskId) {
-                task.taskCards!.map( taskCard => {
-                    if (taskCard.card.cardId === cardId) {
-                        taskCard.cardChecklist = filteredChecklist;
-                    }
-                })
-            }
-        })
-        return dispatch!({type: Actions.DELETE_CHECKLIST, value: state!.taskList});
+        dispatchDeleteChecklist(checklistsId, state!, dispatch);
     };
 
     return (
