@@ -6,6 +6,7 @@ export function reducer(state: any, action: any) {
         case Actions.ADD_TASK:
         case Actions.RENAME_TASK:
         case Actions.DRAG_DROP_CARD:
+        case Actions.DRAG_DROP_TASK:
         case Actions.ADD_DESCRIPTION:
         case Actions.UPDATE_LABELS:
         case Actions.UPDATE_CHECKLIST:

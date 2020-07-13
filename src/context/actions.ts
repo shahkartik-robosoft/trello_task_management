@@ -61,6 +61,15 @@ export const dispatchOnDropCard = (e: any, destinTaskId: string, index: number, 
     return dispatch({type: Actions.DRAG_DROP_CARD, value: state.taskList});
 }
 
+export const dispatchOnDropTask = (e: any, destinTaskId: string, dropIndex: number, state: IState, dispatch: any) => {
+    const taskId =  e.dataTransfer.getData('taskId');
+    const taskIndex =  e.dataTransfer.getData('index');
+    const task = state.taskList.splice(taskId, 1);
+    state.taskList.splice(dropIndex, 0, task[0]);
+    return dispatch({type: Actions.DRAG_DROP_TASK, value: state.taskList});
+
+}
+
 export const dispatchAddDescription = (description: string, state: IState, dispatch: any) => {
     const { taskId, cardId } = state.cardSelected;
     state.taskList.map(task => {

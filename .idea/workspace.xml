@@ -19,14 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4eac369f-c203-4504-a9cf-b0119d79494f" name="Default Changelist" comment="using useReducer and context instead of redux.">
-      <change afterPath="$PROJECT_DIR$/src/context/actions.ts" afterDir="false" />
+    <list default="true" id="4eac369f-c203-4504-a9cf-b0119d79494f" name="Default Changelist" comment="Refactoring actions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CardChecklist/CardChecklist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ListItem/ListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/CardDetailsModal/CardDetailsModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/ItemsView/ItemsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/ItemsView/ItemsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/enums.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/reducer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,7 @@
       <workItem from="1594114975523" duration="58466000" />
       <workItem from="1594497841888" duration="592000" />
       <workItem from="1594557463492" duration="82000" />
-      <workItem from="1594557565161" duration="22561000" />
+      <workItem from="1594557565161" duration="23813000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for the project.">
       <created>1594221101701</created>
@@ -144,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594636921254</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactoring actions.">
+      <created>1594646330651</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1594646330652</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +176,8 @@
     <MESSAGE value="card dropable in between" />
     <MESSAGE value="correcting style" />
     <MESSAGE value="using useReducer and context instead of redux." />
-    <option name="LAST_COMMIT_MESSAGE" value="using useReducer and context instead of redux." />
+    <MESSAGE value="Refactoring actions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring actions." />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="283" key="#com.intellij.ide.util.MemberChooser" timestamp="1594233855239">
@@ -223,29 +229,29 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="385" y="325" key="VCS.ChangeListViewerDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594388772374" />
-    <state x="496" y="295" key="Vcs.Push.Dialog.v2" timestamp="1594636923045">
+    <state x="496" y="295" key="Vcs.Push.Dialog.v2" timestamp="1594646334843">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="496" y="300" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1594417270379" />
-    <state x="496" y="295" key="Vcs.Push.Dialog.v2/0.23.1792.1017@0.23.1792.1017" timestamp="1594636923045" />
+    <state x="496" y="295" key="Vcs.Push.Dialog.v2/0.23.1792.1017@0.23.1792.1017" timestamp="1594646334843" />
     <state x="743" y="123" width="949" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1594634717756">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="100" y="110" width="1592" height="900" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594236645023" />
     <state x="743" y="123" width="949" height="817" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1594634717756" />
-    <state x="597" y="286" width="922" height="490" key="find.popup" timestamp="1594636889687">
+    <state x="597" y="286" width="922" height="490" key="find.popup" timestamp="1594648937034">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="840" y="228" width="922" height="548" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594561712167" />
-    <state x="597" y="286" width="922" height="490" key="find.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594636889687" />
+    <state x="597" y="286" width="922" height="490" key="find.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594648937034" />
     <state x="1096" y="548" key="git4idea.ui.GitUnstashDialog" timestamp="1594388774115">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="1096" y="548" key="git4idea.ui.GitUnstashDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594388774115" />
-    <state x="561" y="248" width="670" height="676" key="search.everywhere.popup" timestamp="1594645575319">
+    <state x="561" y="248" width="670" height="676" key="search.everywhere.popup" timestamp="1594648053110">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
     <state x="561" y="248" width="670" height="745" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1594561478160" />
-    <state x="561" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594645575319" />
+    <state x="561" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1594648053110" />
   </component>
 </project>
